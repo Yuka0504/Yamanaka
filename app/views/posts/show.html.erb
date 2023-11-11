@@ -1,8 +1,8 @@
 
 
-<div class="container">
+
   <h1 class="section-title">投稿詳細</h1>
-  <div class="todo">
+  <div class="todo todo-show">
     <div class="todo-header">
       <div class="todo-header-left">
           <img class="todo-header-list" src="https://illustration-free.net/thumb/svg/ifn0438.svg" height="50">
@@ -20,5 +20,13 @@
        <p>●勉強時間</p>
        <p><%= @post.time %></p>
      </div>
+
+
+    <% if @post.user == current_user %>
+      <div class="button">
+        <%= link_to "削除する", post_path(@post), method: :delete %>
+      </div>
+    <% end %>
+
   </div>
-</div>
+

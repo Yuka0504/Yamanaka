@@ -1,33 +1,32 @@
 
-<div class="container">
   <h1 class="section-title">投稿一覧</h1>
 
+  <div class="todo-wrapper">
+    <% @posts.each do |post| %>
 
-<% @posts.each do |post| %>
-  <div class="todo">
-    <div class="todo-header">
-      <div class="todo-header-left">
-          <img class="todo-header-list" src="https://illustration-free.net/thumb/svg/ifn0438.svg" height="50">
-          <div class="todo-header-list"><%= post.user.name %></div>
-          <div class="todo-header-list"><%= post.user.university %></div>
+      <div class="todo">
+        <div class="todo-header">
+          <div class="todo-header-left">
+              <img class="todo-header-list" src="https://illustration-free.net/thumb/svg/ifn0438.svg" height="50">
+              <div class="todo-header-list"><%= post.user.name %></div>
+              <div class="todo-header-list"><%= post.user.university %></div>
+          </div>
+          <div class="todo-header-right">
+              <%= post.created_at.strftime('%Y/%m/%d') %>
+          </div>
+        </div>
+        <!--databaseから情報取得-->
+         <div class="todo-content">
+           <p>●ToDoリスト</p>
+           <p><%= post.body %></p>
+           <p>●勉強時間</p>
+           <p><%= post.time %></p>
+         </div>
+
+         <div class="button">
+           <%= link_to "詳細を見る", post_path(post.id) %>
+         </div>
+
       </div>
-      <div class="todo-header-right">
-          <%= post.created_at.strftime('%Y/%m/%d') %>
-      </div>
-    </div>
-    <!--databaseから情報取得-->
-     <div class="todo-content">
-       <p>●ToDoリスト</p>
-       <p><%= post.body %></p>
-       <p>●勉強時間</p>
-       <p><%= post.time %></p>
-     </div>
-
-     <div class="button">
-       <%= link_to "詳細を見る", post_path(post.id) %>
-     </div>
-
+    <% end %>
   </div>
-<% end %>
-
-</div>
