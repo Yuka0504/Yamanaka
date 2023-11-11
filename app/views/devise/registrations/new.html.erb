@@ -1,0 +1,32 @@
+<h1 class="section-title">新規登録</h1>
+
+<%= form_with model: @user, url: user_registration_path, class: "sign-form" do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="content">
+    <div class="sign-list">
+      <div class="label">名前</div>
+      <div><%= f.text_field :name, autofocus: true, autocomplete: "name", class: 'form-box' %></div>
+    </div>
+    <div class="sign-list">
+      <div class="label">志望大学</div>
+      <div><%= f.text_field :university, autocomplete: "name", class: 'form-box' %></div>
+    </div>
+    <div class="sign-list">
+      <div class="label">メールアドレス</div>
+      <div><%= f.email_field :email, autocomplete: "email", class: 'form-box' %></div>
+    </div>
+    <div class="sign-list">
+      <div class="label">パスワード</div>
+      <div><%= f.password_field :password, autocomplete: "new-password", class: 'form-box' %></div>
+    </div>
+    <div class="sign-list">
+      <div class="label">パスワード確認</div>
+      <div><%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-box' %></div>
+    </div>
+  </div>
+
+  <div class="button">
+    <%= f.submit "新規登録", class: 'button-link' %>
+  </div>
+<% end %>
