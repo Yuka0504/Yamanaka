@@ -1,0 +1,21 @@
+<h1 class="section-title">To Do リスト</h1>
+
+
+<%= form_with model: @post, class: 'form' do |f| %>
+
+  <%= f.text_area :body, class: 'form-input' %>
+
+  <div class="time-item">
+    <div class="label">勉強時間</div>
+    <%= f.text_field :time, class: 'time-item-form' %>
+  </div>
+  <div class="time-item">
+    <div class="label">達成度</div>
+    <%= f.text_field :complete, class: 'time-item-form' %>
+  </div>
+  <div class="button">
+    <%= f.submit '編集する', class: 'button-link' %>
+  </div>
+
+<% end %>
+

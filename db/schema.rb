@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_11_11_111540) do
+ActiveRecord::Schema.define(version: 2023_11_12_054756) do
 
   create_table "posts", force: :cascade do |t|
     t.string "body"
@@ -18,6 +18,9 @@ ActiveRecord::Schema.define(version: 2023_11_11_111540) do
     t.string "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "college"
+    t.string "checkboxes"
+    t.integer "complete", default: 0
   end
 
   create_table "users", force: :cascade do |t|

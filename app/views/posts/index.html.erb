@@ -1,4 +1,13 @@
 
+<div class="search-form">
+  <%= form_tag({controller:"posts",action:"index"}, method: :get) do %>
+    <div class="search-box">
+      <%= text_field_tag :search %>
+    </div>
+    <%= submit_tag '検索', class: 'button-link'  %>
+  <% end %>
+</div>
+
   <h1 class="section-title">投稿一覧</h1>
 
   <div class="todo-wrapper">
@@ -17,10 +26,12 @@
         </div>
         <!--databaseから情報取得-->
          <div class="todo-content">
-           <p>●ToDoリスト</p>
-           <p><%= post.body %></p>
-           <p>●勉強時間</p>
-           <p><%= post.time %></p>
+           <li class="todo-list">●ToDoリスト</li>
+           <li class="todo-list-detail"><%= post.body %></li>
+           <li class="todo-list">●勉強時間</li>
+           <li class="todo-list-detail"><%= post.time %></li>
+           <li class="todo-list">●達成度</li>
+           <li class="todo-list-detail"><%= post.complete %>%</li>
          </div>
 
          <div class="button">

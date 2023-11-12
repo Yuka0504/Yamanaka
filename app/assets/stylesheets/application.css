@@ -221,20 +221,66 @@ textarea{
 }
 
 /*　投稿一覧ページ */
+.search-form{
+  text-align: center;
+  margin-top: 40px;
+}
+
+
+.search-box {
+  display: inline-block; /* なくても大丈夫だけど、念の為 */
+  position: relative;    /* 基準値とする */
+}
+
+.search-box::before {
+  content: "";           /* 疑似要素に必須 */
+  width: 16px;           /* アイコンの横幅 */
+  height: 16px;          /* アイコンの高さ */
+  background: url(/assets/icon_063140_256.png) no-repeat center center / auto 100%; /* 背景にアイコン画像を配置 */
+  display: inline-block; /* 高さを持たせるためにインラインブロック要素にする */
+  position: absolute;    /* 相対位置に指定 */
+  top: 50%;
+  transform: translateY(-50%);/* アイコンの位置。微調整してね */
+  left: 5px;
+  padding-right: 20px;/* アイコンの位置。微調整してね */
+}
+
+#search{
+  box-shadow: none;
+    border: 1px solid #707070;
+    background: #fff;
+    padding: 10px 16px 10px 40px;
+    appearance: none;
+    border-radius: 0;
+    font-family: inherit;
+    font-size: 18px;
+}
+
+.search_box input {
+  padding: 3px 0 3px 2em; /* アイコンを設置するため左の余白を多めに指定*/
+}
+
 
 .todo-wrapper{
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .todo {
-    width: 33.3%;
+    width: calc(33.3% - 20px * 2 / 3 );
     padding: 30px;
-    margin: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
     background: #F4F4F4;
     border-left: solid 6px #FF8B5F;
     box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.33);
     box-sizing: border-box;
+}
+
+
+
+.todo:nth-child(3n){
+  margin-right: 0;
 }
 
 .todo-show{
@@ -256,7 +302,7 @@ textarea{
 
 .todo-header-list{
   margin-left: 10px;
-  font-size: 20px;
+  font-size: 17px;
 }
 
 .todo-header-list:first-child{
@@ -267,9 +313,17 @@ textarea{
   margin-top: 20px;
 }
 
-.todo-content p {
-    font-size: 18px;
-    margin-top: 5px;
+.todo-list{
+  font-size: 20px;
+  margin-top: 5px;
+  color: #797979;
+}
+
+.todo-list-detail{
+  font-size: 20px;
+  margin-top: 10px;
+  padding-left: 10px;
+  display: block;
 }
 
 @media screen and (max-width: 480px) {
